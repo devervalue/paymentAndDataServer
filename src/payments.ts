@@ -240,24 +240,38 @@ export async function getIncomeDistributionWithLegacy(date: string) {
 
   const miningTotal = mergedPayouts.reduce((acc, p) => acc + Number(p.amount || "0"), 0).toString();
 
+  // Build burnVaultCoreList and bvBoostList (legacy: all to core, no boost)
+  const legacyCoreList =
+    legacyPayouts.length > 0
+      ? legacyPayouts.map((p) => ({
+          amount: p.amountBtc,
+          txHash: p.memo || p.btcTxHash || "",
+          percentage: "100",
+        }))
+      : [];
+  const burnVaultCoreList = base.burnVaultCoreList || legacyCoreList;
+  const bvBoostList = base.bvBoostList || [];
+
   return {
     date: normalizedDate,
     totalBTCIncome: total,
     miningPayouts: mergedPayouts,
     burnVaultCore: base.burnVaultCore || {
-      amount: "0",
-      txHash: "",
-      percentage: "0",
+      amount: total,
+      txHash: burnVaultCoreList.map((b) => b.txHash).filter(Boolean).join(","),
+      percentage: "100",
     },
     bvBoost: base.bvBoost || {
       amount: "0",
       txHash: "",
       percentage: "0",
     },
+    burnVaultCoreList,
+    bvBoostList,
     breakdown: {
       miningTotal,
-      miningPercentage: "0",
-      corePercentage: base.burnVaultCore?.percentage || "0",
+      miningPercentage: "100",
+      corePercentage: base.burnVaultCore?.percentage || "100",
       boostPercentage: base.bvBoost?.percentage || "0",
     },
   };
@@ -331,17 +345,24 @@ export async function getIncomeHistory(params: { startDate?: string; endDate?: s
     .map(([d, items]) => {
       const payouts = items.map((l) => mapLegacy(d, l));
       const total = sumBtc(payouts);
+      const burnVaultCoreList = payouts.map((p) => ({
+        amount: p.amountBtc,
+        txHash: p.memo || p.btcTxHash || "",
+        percentage: "100",
+      }));
       return {
         date: d,
         yearMonth: yearMonthFromDate(d),
         miningPayouts: payouts,
         totalBTCIncome: total,
-        burnVaultCore: { amount: "0", txHash: "", percentage: "0" },
+        burnVaultCore: { amount: total, txHash: burnVaultCoreList.map((b) => b.txHash).filter(Boolean).join(","), percentage: "100" },
         bvBoost: { amount: "0", txHash: "", percentage: "0" },
+        burnVaultCoreList,
+        bvBoostList: [],
         breakdown: {
           miningTotal: total,
-          miningPercentage: "0",
-          corePercentage: "0",
+          miningPercentage: "100",
+          corePercentage: "100",
           boostPercentage: "0",
         },
         createdAt: now(),

@@ -52,6 +52,16 @@ export interface IncomeDistribution {
     txHash?: string;
     percentage?: string;
   };
+  burnVaultCoreList?: Array<{
+    amount: string;
+    txHash: string;
+    percentage: string;
+  }>;
+  bvBoostList?: Array<{
+    amount: string;
+    txHash: string;
+    percentage: string;
+  }>;
   breakdown?: {
     miningTotal?: string;
     miningPercentage?: string;
