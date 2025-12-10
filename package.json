@@ -5,9 +5,9 @@
   "type": "commonjs",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
-    "create:tables": "node dist/scripts/createTables.js",
-    "import:legacy": "node dist/scripts/fetchLegacy.js"
+    "start": "npm run build && node dist/server.js",
+    "create:tables": "npm run build && node dist/scripts/createTables.js",
+    "import:legacy": "npm run build && node dist/scripts/fetchLegacy.js"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.609.0",
