@@ -77,6 +77,22 @@ export async function scanDistributions(startDate?: string, endDate?: string) {
   };
 }
 
+export async function scanAllDistributions() {
+  const items: IncomeDistribution[] = [];
+  let startKey: Record<string, unknown> | undefined;
+  do {
+    const res = await docClient.send(
+      new ScanCommand({
+        TableName: config.tables.incomeDistributions,
+        ExclusiveStartKey: startKey,
+      })
+    );
+    if (res.Items) items.push(...(res.Items as IncomeDistribution[]));
+    startKey = res.LastEvaluatedKey;
+  } while (startKey);
+  return items;
+}
+
 export async function queryLegacyByDate(date: string) {
   const res = await docClient.send(
     new QueryCommand({
@@ -88,6 +104,26 @@ export async function queryLegacyByDate(date: string) {
     })
   );
   return res.Items || [];
+}
+
+export async function queryAllLegacyByDate(date: string) {
+  const items: any[] = [];
+  let startKey: Record<string, unknown> | undefined;
+  do {
+    const res = await docClient.send(
+      new QueryCommand({
+        TableName: config.tables.legacyPayouts,
+        IndexName: "date-index",
+        KeyConditionExpression: "#d = :date",
+        ExpressionAttributeNames: { "#d": "date" },
+        ExpressionAttributeValues: { ":date": date },
+        ExclusiveStartKey: startKey,
+      })
+    );
+    if (res.Items) items.push(...res.Items);
+    startKey = res.LastEvaluatedKey;
+  } while (startKey);
+  return items;
 }
 
 export async function queryDistributionsByMonth(
@@ -110,5 +146,25 @@ export async function queryDistributionsByMonth(
     items: (res.Items || []) as IncomeDistribution[],
     lastEvaluatedKey: res.LastEvaluatedKey,
   };
+}
+
+export async function queryAllDistributionsByMonth(yearMonth: string) {
+  const items: IncomeDistribution[] = [];
+  let startKey: Record<string, unknown> | undefined;
+  do {
+    const res = await docClient.send(
+      new QueryCommand({
+        TableName: config.tables.incomeDistributions,
+        IndexName: "yearMonth-index",
+        KeyConditionExpression: "#ym = :ym",
+        ExpressionAttributeNames: { "#ym": "yearMonth" },
+        ExpressionAttributeValues: { ":ym": yearMonth },
+        ExclusiveStartKey: startKey,
+      })
+    );
+    if (res.Items) items.push(...(res.Items as IncomeDistribution[]));
+    startKey = res.LastEvaluatedKey;
+  } while (startKey);
+  return items;
 }
 

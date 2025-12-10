@@ -8,9 +8,9 @@ import {
   updatePaymentRun,
   getDistribution,
   putDistribution,
-  scanDistributions,
-  queryLegacyByDate,
-  queryDistributionsByMonth,
+  scanAllDistributions,
+  queryAllLegacyByDate,
+  queryAllDistributionsByMonth,
 } from "./clients/dynamo";
 import { ExecutePaymentInput, IncomeDistribution, MiningPayout, PaymentRun } from "./types";
 
@@ -225,14 +225,39 @@ export async function getIncomeDistributionWithLegacy(date: string) {
     updatedAt: now(),
   };
 
-  const legacyItems = await queryLegacyByDate(normalizedDate);
+  const legacyItems = await queryAllLegacyByDate(normalizedDate);
   const legacyPayouts = legacyItems.map((l) => mapLegacy(normalizedDate, l));
   const total = (Number(base.totalBTCIncome) + Number(sumBtc(legacyPayouts))).toString();
 
+  const mergedPayouts = [...base.miningPayouts, ...legacyPayouts].map((p) => ({
+    payoutNumber: p.payoutNumber,
+    amount: p.amountBtc,
+    txHash: p.btcTxHash,
+    destination: p.destination || "EVA",
+  }));
+
+  const miningTotal = mergedPayouts.reduce((acc, p) => acc + Number(p.amount || "0"), 0).toString();
+
   return {
-    ...base,
-    miningPayouts: [...base.miningPayouts, ...legacyPayouts],
+    date: normalizedDate,
     totalBTCIncome: total,
+    miningPayouts: mergedPayouts,
+    burnVaultCore: base.burnVaultCore || {
+      amount: "0",
+      txHash: "",
+      percentage: "0",
+    },
+    bvBoost: base.bvBoost || {
+      amount: "0",
+      txHash: "",
+      percentage: "0",
+    },
+    breakdown: {
+      miningTotal,
+      miningPercentage: "0",
+      corePercentage: base.burnVaultCore?.percentage || "0",
+      boostPercentage: base.bvBoost?.percentage || "0",
+    },
   };
 }
 
@@ -245,7 +270,6 @@ export async function getIncomeHistory(params: { startDate?: string; endDate?: s
   const ymEnd = endDate ? yearMonthFromDate(endDate) : ymStart;
 
   let collected: IncomeDistribution[] = [];
-  let lastKey: any | undefined;
   let months: string[] = [];
 
   if (ymStart && ymEnd && ymStart !== ymEnd) {
@@ -265,12 +289,11 @@ export async function getIncomeHistory(params: { startDate?: string; endDate?: s
 
   if (months.length) {
     for (const ym of months) {
-      const { items } = await queryDistributionsByMonth(ym, 500);
+      const items = await queryAllDistributionsByMonth(ym);
       collected.push(...items);
     }
   } else {
-    const scanRes = await scanDistributions();
-    collected = scanRes.items;
+    collected = await scanAllDistributions();
   }
 
   if (startDate) collected = collected.filter((i) => i.date >= normalizeDate(startDate));
