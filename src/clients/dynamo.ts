@@ -22,6 +22,16 @@ export async function putPaymentRun(item: PaymentRun) {
   );
 }
 
+export async function getPaymentRun(runId: string) {
+  const res = await docClient.send(
+    new GetCommand({
+      TableName: config.tables.paymentRuns,
+      Key: { runId },
+    })
+  );
+  return res.Item as PaymentRun | undefined;
+}
+
 export async function updatePaymentRun(runId: string, updates: Partial<PaymentRun>) {
   const ExpressionAttributeNames: Record<string, string> = {};
   const ExpressionAttributeValues: Record<string, unknown> = {};

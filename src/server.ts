@@ -1,7 +1,9 @@
 import express from "express";
+import cors from "cors";
 import { executePayment, getIncomeDistributionWithLegacy, getIncomeHistory } from "./payments";
 
 const app = express();
+app.use(cors());
 app.use(express.json({ limit: "1mb" }));
 
 app.post("/api/payments/execute", async (req, res) => {

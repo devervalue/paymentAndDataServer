@@ -13,6 +13,7 @@ import {
   queryAllLegacyByDate,
   queryAllDistributionsByMonth,
   queryAllLegacyByMonth,
+  getPaymentRun,
 } from "./clients/dynamo";
 import { ExecutePaymentInput, IncomeDistribution, MiningPayout, PaymentRun } from "./types";
 
@@ -167,7 +168,9 @@ export async function executePayment(input: ExecutePaymentInput) {
       parsed.miningPayouts,
       paymentRun.btcTotalIncome!,
       runId,
-      tx.hash
+      tx.hash,
+      paymentRun.burnAmount!,
+      paymentRun.slsAmount!
     );
 
     return {
@@ -196,7 +199,9 @@ async function upsertDistribution(
   miningPayouts: MiningPayout[],
   btcTotalIncome: string,
   runId: string,
-  txHash: string
+  txHash: string,
+  burnAmount: string,
+  slsAmount: string
 ) {
   const normalizedDate = normalizeDate(date);
   const yearMonth = yearMonthFromDate(date);
@@ -207,13 +212,47 @@ async function upsertDistribution(
     Number(existing?.totalBTCIncome || 0) + Number(btcTotalIncome)
   ).toString();
 
+  const totalNum = Number(mergedTotal || "0");
+  const burnNum = Number(burnAmount || "0");
+  const slsNum = Number(slsAmount || "0");
+  const miningTotal = mergedPayouts.reduce(
+    (acc, p) => acc + Number((p as any).amount || (p as any).amountBtc || "0"),
+    0
+  );
+  const pct = (part: number) => (totalNum > 0 ? ((part / totalNum) * 100).toFixed(2) : "0");
+
   const item: IncomeDistribution = {
     date: normalizedDate,
     yearMonth,
     miningPayouts: mergedPayouts,
     totalBTCIncome: mergedTotal,
-    paymentRunId: runId,
+    burnAmount: burnAmount.toString(),
+    slsAmount: slsAmount.toString(),
     paymentTxHash: txHash,
+    burnVaultCore: [
+      {
+        amount: burnAmount.toString(),
+        txHash,
+        percentage: pct(burnNum),
+      },
+    ],
+    bvBoost:
+      slsNum > 0
+        ? [
+            {
+              amount: slsAmount.toString(),
+              txHash,
+              percentage: pct(slsNum),
+            },
+          ]
+        : [],
+    breakdown: {
+      miningTotal: miningTotal.toString(),
+      miningPercentage: pct(miningTotal),
+      corePercentage: pct(burnNum),
+      boostPercentage: pct(slsNum),
+    },
+    paymentRunId: runId,
     createdAt: existing?.createdAt || nowTs,
     updatedAt: nowTs,
   };
@@ -232,6 +271,8 @@ export async function getIncomeDistributionWithLegacy(date: string) {
   const baseYearMonth = base.yearMonth || yearMonthFromDate(normalizedDate);
   const basePaymentTxHash = base.paymentTxHash || "";
   const basePaymentRunId = base.paymentRunId || "";
+  let inferredBurnAmount = base.totalBTCIncome || "0";
+  let inferredSlsAmount = "0";
 
   const legacyItems = await queryAllLegacyByDate(normalizedDate);
   const legacyPayouts = legacyItems.map((l) => mapLegacy(normalizedDate, l));
@@ -262,9 +303,47 @@ export async function getIncomeDistributionWithLegacy(date: string) {
   let bvBoost = base.bvBoost || [];
   if (!Array.isArray(bvBoost)) bvBoost = bvBoost ? [bvBoost] : [];
 
-  // Fallback: for new data without explicit arrays, build them from stored amounts/tx
+  // Try to enrich from payment run when bvBoost is empty (new data split)
+  if (bvBoost.length === 0 && basePaymentRunId) {
+    try {
+      const pr = await getPaymentRun(basePaymentRunId);
+      if (pr) {
+        if (pr.burnAmount) inferredBurnAmount = pr.burnAmount;
+        if (pr.slsAmount) inferredSlsAmount = pr.slsAmount;
+        if (pr.txHash && inferredSlsAmount !== "0") {
+          bvBoost = [
+            {
+              amount: inferredSlsAmount,
+              txHash: pr.txHash,
+              percentage:
+                Number(total || "0") > 0
+                  ? ((Number(inferredSlsAmount || "0") / Number(total || "0")) * 100).toFixed(2)
+                  : "0",
+            },
+          ];
+        }
+        if (burnVaultCore.length === 0 && pr.txHash) {
+          const burnAmt = inferredBurnAmount || base.totalBTCIncome || total;
+          burnVaultCore = [
+            {
+              amount: burnAmt,
+              txHash: pr.txHash,
+              percentage:
+                Number(total || "0") > 0
+                  ? ((Number(burnAmt || "0") / Number(total || "0")) * 100).toFixed(2)
+                  : "0",
+            },
+          ];
+        }
+      }
+    } catch (e) {
+      // best-effort; ignore fetch errors
+    }
+  }
+
+  // Legacy fallback
   if (burnVaultCore.length === 0 && base.paymentTxHash) {
-    const burnAmount = base.burnAmount || base.totalBTCIncome || total;
+    const burnAmount = base.totalBTCIncome || total;
     const burnPct =
       Number(total || "0") > 0 ? ((Number(burnAmount || "0") / Number(total || "0")) * 100).toFixed(2) : "0";
     burnVaultCore = [
