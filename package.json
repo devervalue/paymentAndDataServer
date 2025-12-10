@@ -4,9 +4,10 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "dev": "ts-node src/server.ts",
-    "build": "tsc --noEmit",
-    "tables": "ts-node scripts/createTables.ts"
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "create:tables": "node dist/scripts/createTables.js",
+    "import:legacy": "node dist/scripts/fetchLegacy.js"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.609.0",
