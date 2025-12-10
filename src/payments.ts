@@ -154,7 +154,7 @@ export async function executePayment(input: ExecutePaymentInput) {
   }
 
   try {
-    const tx = await payer.pay(parsed.amount, effectiveSlsShare, effectiveIncrease, parsed.additionalEva);
+    const tx = await payer.pay(amountWei, effectiveSlsShare, effectiveIncrease, parsed.additionalEva);
     await updatePaymentRun(runId, { txHash: tx.hash });
     const receipt = await tx.wait();
     const completedAt = now();
