@@ -1,9 +1,10 @@
 export const addresses = {
-    EverValueCoin: "0xf7c9574838f2ecD679f670E978F71949b1717F83",
-    WBTCMock: "0xdfF1cA8e0611e6D46efF73eA2d1002fFa2933C87",
-    SLSburnVaultFactory: "0x8E205D6e392A5BA3b69F35AD41546bAEde43f5d1",
-    SLSPayer: "0x7A4D7df3197e7D38D5597De0dA615ccc054b157E",
-} as const;
-
-export type KnownAddress = keyof typeof addresses;
-
+    EverValueCoin: "0x60d463955EbC150EaB1055A78c32e9437e06c2f2",
+    WBTCMock: "0x47440661F5dA72556E3f609B9DE3273764562b8a",
+    EVABurnVault: "0x8A4358dC1Af8dc83AFf622a012b95108aE8DFcE0",
+    SLSburnVaultFactory: "0xD723c9F9dB6861CB23EBf8Be67bb793e3fDbB83e",
+    SLSPayer: "0x7Fb096d91f716755e941D14FE07Ee1de8f970E60",
+    FirstSLSburnVault: "0x54618ebA68dA568A442BAAAE942003cFED30f6Ff",
+  } as const;
+  
+  export type KnownAddress = keyof typeof addresses;

@@ -17,8 +17,7 @@ export const config = {
     slsPayer: addresses.SLSPayer,
     factory: addresses.SLSburnVaultFactory,
     backingToken: addresses.WBTCMock,
-    // Burn vault is not in addresses; keep as env-provided.
-    burnVault: required("BURN_VAULT"),
+    evaBurnVault: addresses.EVABurnVault,
   },
   tables: {
     paymentRuns: required("PAYMENT_RUNS_TABLE"),
