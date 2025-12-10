@@ -17,7 +17,7 @@ export const config = {
     slsPayer: addresses.SLSPayer,
     factory: addresses.SLSburnVaultFactory,
     backingToken: addresses.WBTCMock,
-    evaBurnVault: addresses.EVABurnVault,
+    burnVault: addresses.EVABurnVault,
   },
   tables: {
     paymentRuns: required("PAYMENT_RUNS_TABLE"),
