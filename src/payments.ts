@@ -295,7 +295,15 @@ export async function getIncomeDistributionWithLegacy(date: string) {
         }))
       : [];
 
-  let burnVaultCore = base.burnVaultCore || legacyCoreList || [];
+  // Merge legacy burn entries with any stored burnVaultCore (keeping all per-transaction items)
+  let burnVaultCore = [
+    ...(legacyCoreList || []),
+    ...(Array.isArray(base.burnVaultCore)
+      ? base.burnVaultCore
+      : base.burnVaultCore
+      ? [base.burnVaultCore]
+      : []),
+  ];
   if (!Array.isArray(burnVaultCore)) burnVaultCore = burnVaultCore ? [burnVaultCore] : [];
 
   let bvBoost = base.bvBoost || [];
@@ -339,7 +347,7 @@ export async function getIncomeDistributionWithLegacy(date: string) {
     }
   }
 
-  // Legacy fallback
+  // Legacy fallback (only if still empty)
   if (burnVaultCore.length === 0 && basePaymentTxHash) {
     const burnAmount = base.totalBTCIncome || total;
     const burnPct =
