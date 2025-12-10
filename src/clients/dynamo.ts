@@ -106,6 +106,22 @@ export async function queryLegacyByDate(date: string) {
   return res.Items || [];
 }
 
+export async function scanAllLegacy() {
+  const items: any[] = [];
+  let startKey: Record<string, unknown> | undefined;
+  do {
+    const res = await docClient.send(
+      new ScanCommand({
+        TableName: config.tables.legacyPayouts,
+        ExclusiveStartKey: startKey,
+      })
+    );
+    if (res.Items) items.push(...res.Items);
+    startKey = res.LastEvaluatedKey;
+  } while (startKey);
+  return items;
+}
+
 export async function queryAllLegacyByDate(date: string) {
   const items: any[] = [];
   let startKey: Record<string, unknown> | undefined;
@@ -117,6 +133,26 @@ export async function queryAllLegacyByDate(date: string) {
         KeyConditionExpression: "#d = :date",
         ExpressionAttributeNames: { "#d": "date" },
         ExpressionAttributeValues: { ":date": date },
+        ExclusiveStartKey: startKey,
+      })
+    );
+    if (res.Items) items.push(...res.Items);
+    startKey = res.LastEvaluatedKey;
+  } while (startKey);
+  return items;
+}
+
+export async function queryAllLegacyByMonth(yearMonth: string) {
+  const items: any[] = [];
+  let startKey: Record<string, unknown> | undefined;
+  do {
+    const res = await docClient.send(
+      new QueryCommand({
+        TableName: config.tables.legacyPayouts,
+        IndexName: "yearMonth-index",
+        KeyConditionExpression: "#ym = :ym",
+        ExpressionAttributeNames: { "#ym": "yearMonth" },
+        ExpressionAttributeValues: { ":ym": yearMonth },
         ExclusiveStartKey: startKey,
       })
     );

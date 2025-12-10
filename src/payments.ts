@@ -9,8 +9,10 @@ import {
   getDistribution,
   putDistribution,
   scanAllDistributions,
+  scanAllLegacy,
   queryAllLegacyByDate,
   queryAllDistributionsByMonth,
+  queryAllLegacyByMonth,
 } from "./clients/dynamo";
 import { ExecutePaymentInput, IncomeDistribution, MiningPayout, PaymentRun } from "./types";
 
@@ -287,22 +289,78 @@ export async function getIncomeHistory(params: { startDate?: string; endDate?: s
     months = [ymStart];
   }
 
-  if (months.length) {
-    for (const ym of months) {
-      const items = await queryAllDistributionsByMonth(ym);
-      collected.push(...items);
+  const rangeMonths = () => {
+    if (!months.length) {
+      // Default: last 3 months if no range provided
+      const today = new Date();
+      const ymList: string[] = [];
+      for (let i = 0; i < 3; i++) {
+        const d = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth() - i, 1));
+        ymList.push(`${d.getUTCFullYear().toString().padStart(4, "0")}-${(d.getUTCMonth() + 1).toString().padStart(2, "0")}`);
+      }
+      return ymList;
     }
-  } else {
-    collected = await scanAllDistributions();
+    return months;
+  };
+
+  const targetMonths = rangeMonths();
+
+  // Pull distributions by month
+  for (const ym of targetMonths) {
+    const items = await queryAllDistributionsByMonth(ym);
+    collected.push(...items);
   }
 
-  if (startDate) collected = collected.filter((i) => i.date >= normalizeDate(startDate));
-  if (endDate) collected = collected.filter((i) => i.date <= normalizeDate(endDate));
+  // Build a set of dates already present in income-distributions
+  const baseDates = new Set(collected.map((i) => normalizeDate(i.date)));
 
-  collected.sort((a, b) => (a.date < b.date ? 1 : -1));
+  // Pull legacy by month (no full scan)
+  const legacyByDate: Record<string, any[]> = {};
+  for (const ym of targetMonths) {
+    const legItems = await queryAllLegacyByMonth(ym);
+    for (const item of legItems) {
+      const d = normalizeDate(item.date);
+      legacyByDate[d] = legacyByDate[d] || [];
+      legacyByDate[d].push(item);
+    }
+  }
 
-  const start = (page - 1) * limit;
-  const slice = collected.slice(start, start + limit);
+  // Create stub distributions for legacy-only dates not in base
+  const legacyOnly: IncomeDistribution[] = Object.entries(legacyByDate)
+    .filter(([d]) => !baseDates.has(d))
+    .map(([d, items]) => {
+      const payouts = items.map((l) => mapLegacy(d, l));
+      const total = sumBtc(payouts);
+      return {
+        date: d,
+        yearMonth: yearMonthFromDate(d),
+        miningPayouts: payouts,
+        totalBTCIncome: total,
+        burnVaultCore: { amount: "0", txHash: "", percentage: "0" },
+        bvBoost: { amount: "0", txHash: "", percentage: "0" },
+        breakdown: {
+          miningTotal: total,
+          miningPercentage: "0",
+          corePercentage: "0",
+          boostPercentage: "0",
+        },
+        createdAt: now(),
+        updatedAt: now(),
+      };
+    });
+
+  // Normalize date filter
+  const startNorm = startDate ? normalizeDate(startDate) : undefined;
+  const endNorm = endDate ? normalizeDate(endDate) : undefined;
+
+  let merged = [...collected, ...legacyOnly];
+  if (startNorm) merged = merged.filter((i) => i.date >= startNorm);
+  if (endNorm) merged = merged.filter((i) => i.date <= endNorm);
+
+  merged.sort((a, b) => (a.date < b.date ? 1 : -1));
+
+  const startIdx = (page - 1) * limit;
+  const slice = merged.slice(startIdx, startIdx + limit);
 
   const withLegacy = await Promise.all(slice.map((item) => getIncomeDistributionWithLegacy(item.date)));
 
@@ -310,8 +368,8 @@ export async function getIncomeHistory(params: { startDate?: string; endDate?: s
     distributions: withLegacy,
     pagination: {
       currentPage: page,
-      totalPages: Math.ceil(collected.length / limit),
-      totalItems: collected.length,
+      totalPages: Math.ceil(merged.length / limit),
+      totalItems: merged.length,
     },
   };
 }
