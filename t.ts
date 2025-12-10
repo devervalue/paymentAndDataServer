@@ -1,4 +1,4 @@
-const test = {
+const t = {
   distributions: [
     {
       date: "2025-12-20",
@@ -23,14 +23,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.6", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -57,14 +55,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.604", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.604",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -91,14 +87,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.602", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.602",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -125,14 +119,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.599", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.599",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -159,14 +151,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.603", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.603",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -193,14 +183,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.597", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.597",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -227,14 +215,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.601", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.601",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -261,14 +247,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.598", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.598",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -295,14 +279,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.605", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.605",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -329,14 +311,12 @@ const test = {
           destination: "EVA",
         },
       ],
-      burnVaultCore: { amount: "0.6", txHash: "", percentage: "100" },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [],
-      bvBoostList: [],
+      burnVaultCore: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6",
         miningPercentage: "100",
-        corePercentage: "100",
+        corePercentage: "0",
         boostPercentage: "0",
       },
     },
@@ -366,14 +346,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.51952527",
-        txHash:
-          "0x6d63a25769e52f0c15ef4019581237a48ecfd258e9fe778d6f4e816b5f554f5c,0x801e271780cee6d2883654e9a2dd5acb1b19720a57946c7002dda07605f8d57e,0x5cd4975237055446ba31cc9df76b4da2d810b58f7d9c8ec0c12fece86036d44c",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.064224",
           txHash:
@@ -393,7 +366,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.51952527",
         miningPercentage: "100",
@@ -420,14 +393,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.44750535",
-        txHash:
-          "0xee588e15cead6c52a6b1925aad3e6ad4fe93a17df573a5e434e52401c745368c,0x5461c6d224fa40c92a6d246af3a8a9fdeb1a0de29d8de7c6a04acc6575fb83de",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21900868",
           txHash:
@@ -441,7 +407,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.44750535",
         miningPercentage: "100",
@@ -475,14 +441,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.5100136200000001",
-        txHash:
-          "0x4e08d3bdd5ac72244a22748501d06335f5cdca61507b0ede6081330dacb58f92,0x5b85cbeba9d0bec8b085732c7b36513006dfd0108488bb48d47ea0a65d0c921c,0xde8bb791e3462668db991deeea57fecce15327caf3defb127240f7e594359193",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06428075",
           txHash:
@@ -502,7 +461,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.5100136200000001",
         miningPercentage: "100",
@@ -536,14 +495,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.50097748",
-        txHash:
-          "0xc33fedb410d4249c6d5d66ea7f6384d4d92d0295aac7b52772ef61c83e79a1f3,0x4a43a4d33b2a83fdc66e7163b2d01ab5bee3d1437cbaef3eb32e611d59bab914,0x3c0424cb1f554396af4f63fd7cd5f2feb59841aafe14d79ea031723ab08c81d7",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06421961",
           txHash:
@@ -563,7 +515,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.50097748",
         miningPercentage: "100",
@@ -597,14 +549,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.51485002",
-        txHash:
-          "0xd7f97a31ee3976de1be7587bdd6b1d740403f0f96590f977474439f4d11b0136,0x9a009d330f7f4dc9dfcde612867d62325d4ed7a4f831b747ab8c967c4af57f88,0x08be67e093f33524b8f0fc2f1c3f3f1b637d0a8657c1c7bca3f6392227f6a270",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22109424",
           txHash:
@@ -624,7 +569,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.51485002",
         miningPercentage: "100",
@@ -658,14 +603,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.5000308",
-        txHash:
-          "0x537b1e7f68aa5a312eae3e6954f202792a12b112c5f6840246acc35af9b7dc7f,0x2c74f0935c025aae60c39d8b4a2b4462cb22dcb7c04f9296ce5fa67b8b35dad8,0xf2300ce379f303f182365117faeceddd0fc529a790bf55bcfa1806491da9e5b8",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21545172",
           txHash:
@@ -685,7 +623,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.5000308",
         miningPercentage: "100",
@@ -719,14 +657,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.5063921499999999",
-        txHash:
-          "0xf797ba84490543886a0bf79dca8ce45fd49888206e80a18e229c19fe23bce1c5,0x5d2a298b911629c41788f8ddeed709bdf24a0400efce090ac1d2c0ffaacdfbc7,0xe1caebab148a5716eb3a132272e8a3aeaeeb08081dbf42abc8e7c8340724c1f7",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22081573",
           txHash:
@@ -746,7 +677,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.5063921499999999",
         miningPercentage: "100",
@@ -780,14 +711,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.51494732",
-        txHash:
-          "0xe262d3270bf05a615f2c0224eefb689a1a7626a01ecd664ad5f13916c78b71c7,0x99a65d5ffd432029fc583058657af689dc03084049f43251b3f03b71e7218775,0x0d4eab43959ea588f9d06d66a6654df03f0aba565c1ef5f7069841fb10497e3e",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22625373",
           txHash:
@@ -807,7 +731,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.51494732",
         miningPercentage: "100",
@@ -841,14 +765,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.49661575999999996",
-        txHash:
-          "0x12a8d2a4d8d32bd9bfc979382964a4070e820c71d5acf0f082449209421348bf,0x9f296982110b28e029b40d9ae2957acf61d38efc5625a19bbd79306601810c9f,0x87c87fc6a8f4d669b122a0d2db4ce66b275db5713725a90e515acb73807b237c",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06423511",
           txHash:
@@ -868,7 +785,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.49661575999999996",
         miningPercentage: "100",
@@ -902,14 +819,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.51287116",
-        txHash:
-          "0xd1dcd7777f99fd4412bbbd5273808b9bc6ff21878507532c67fbbb4fbf7af7fb,0x2b6d6489d6b576fcd5ddc38dcc95ae58f3d15239a85d32ffaf8dcdc9b86bd299,0x034ec843e7349ed837297c1139c31c1e396ce2c33420e38e71a8820a10a40d19",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21927312",
           txHash:
@@ -929,7 +839,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.51287116",
         miningPercentage: "100",
@@ -963,14 +873,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.50274196",
-        txHash:
-          "0x0c94c8046343fa8d4b7c11da11331e102b4120a358ca5cf67e7c74b9170b93ff,0xaf4fda2563633ad5d9541b500684be7de1e3fb8fcddec3580e597a17476d6609,0xf91ea76b9436ef00353d362ef1d583c7ab682fcac470cab472ec399f50cb061f",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21885266",
           txHash:
@@ -990,7 +893,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.50274196",
         miningPercentage: "100",
@@ -1024,14 +927,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.49155967999999994",
-        txHash:
-          "0x63f8c5e935b5e788337dbf1eb9d7f73fbec8d4b75596909f6c63300af79a5727,0xaf0b2719abaccd99c63bd0c2f33c7403804d6b09aa10d0339abce66972330d9a,0x71fb7301daa0d71c1563699372203c078913036a348c86dc55f0f90f193f8bc9",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21473746",
           txHash:
@@ -1051,7 +947,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.49155967999999994",
         miningPercentage: "100",
@@ -1085,14 +981,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.49900455999999993",
-        txHash:
-          "0x945b553eb0f342a8d52a34180954f384eb9bbe7c4fb22afec7c96a9d7ce8bbf3,0xfeea782c464d078b50e0532be65f44e1db6a611fe870cd6201f5e7e703a18127,0xf9e9b952485dd160ad974b805f3526bc538d6156071c10c8d00f6bdc537bef60",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06291527",
           txHash:
@@ -1112,7 +1001,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.49900455999999993",
         miningPercentage: "100",
@@ -1146,14 +1035,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.5160351999999999",
-        txHash:
-          "0x67fdcd23ee35b57af7105386b851024e61be3d6825130b81e5f45fa25d2606bc,0x3898145205e9a35442c3b92523bebd306810df712f9bc01db2a641a74486b3b9,0x7d6c4a9b580cf6c8e124054daac6958d4e72687d46e9f694ccead502999be7f1",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.25239311",
           txHash:
@@ -1173,7 +1055,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.5160351999999999",
         miningPercentage: "100",
@@ -1207,14 +1089,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.5011812",
-        txHash:
-          "0x094605b7122c7bc2165bd1058ad17533b505ec3d9abfc09af0b5d5bffd67b056,0xf803ef2d3d19c1ae0996bb99be94bd75bdb66887292ecc95dede64ae69e54d76,0x6ea2277bbea4f7f93f61393334905034ea5160b4dd9195774dde746c7f9291f8",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06311206",
           txHash:
@@ -1234,7 +1109,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.5011812",
         miningPercentage: "100",
@@ -1268,14 +1143,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.49477108000000003",
-        txHash:
-          "0x67c21f8859c3230daa1f819367037d952cdbff9256932d186e614dbe1cbfcd37,0xce9e6bc1506eed6ae7a3ba20ed455f58ae8db9b16de7165745731ac7baf93b8f,0x2095df4c73374c2410470ec6c0985357bb4835467f7aab7106d108abb46c57d7",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.0629181",
           txHash:
@@ -1295,7 +1163,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.49477108000000003",
         miningPercentage: "100",
@@ -1329,14 +1197,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.49500708",
-        txHash:
-          "0xe3a477b4cb1c6c8a236ec835143bd25f9ade2d75783a2fd45a319b0371986a1b,0x14a06721b773ff190bc51f6505b4ff2468b4af127db5a686d40b734822c849d6,0xbe649b55fa0cf5c19a89e20e2b71d25b107ae2dac0291c12634d33445eeb26aa",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06311406",
           txHash:
@@ -1356,7 +1217,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.49500708",
         miningPercentage: "100",
@@ -1390,14 +1251,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.48257964999999997",
-        txHash:
-          "0x22328476da02f696ac86159de90442b9da61160b10a7c8b1dbbf47d863ea1a5b,0x757c7ce40824640ee346154d3dd8fba6735deb38d605943d5231b9f65375f813,0xc7c2f269af46626e8f87d67e476b4455676b59580af0a141da73312ec6cbb892",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06315666",
           txHash:
@@ -1417,7 +1271,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.48257964999999997",
         miningPercentage: "100",
@@ -1451,14 +1305,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.47155590000000003",
-        txHash:
-          "0xb2f87e8aeb0cd74c18009ed8479f4226ad7c3377dcadaaf547ffe250a570e05e,0xf8ab31f1e2c154794f8dbef99151bd28b68308a7eaa185533936746d53bea1db,0xd2183d1030d93b50ecf4b87015b1f161388ff04b17966ddd38185789df41f3dc",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.0632049",
           txHash:
@@ -1478,7 +1325,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.47155590000000003",
         miningPercentage: "100",
@@ -1512,14 +1359,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.48191434",
-        txHash:
-          "0xce85df6b42e157243cebd9e6d7a38818dd7dc5f3e1cc5ae8a60234dc846ece5a,0xb4f62b4cb9740199491c985af0498338f12a1d210fa9e01bd244052ef086c39f,0xaa7c3182b52b99e0671e5b44ea4c0020185a08214714af589e91b39d57dfd282",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06250534",
           txHash:
@@ -1539,7 +1379,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.48191434",
         miningPercentage: "100",
@@ -1573,14 +1413,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.51779843",
-        txHash:
-          "0x6f1ea229a5753d2f7759c7d3e652e4417af48b245adf4d2bc34ba834972e2665,0xdb3cc1f8702e9a42b7f3ba93fe774d4e4a93f6eb3d118233a48b4351a2820c1d,0x84718b64c9fc782a753a69ba78ba0754aca7f17acba277e6ff15f2786e762cc0",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.05420787",
           txHash:
@@ -1600,7 +1433,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.51779843",
         miningPercentage: "100",
@@ -1634,14 +1467,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.6893655200000001",
-        txHash:
-          "0x1cf789af99d8b78c580afdeeb574b6fb12e2acde8c745f49a89017006c00f554,0x7c6bf32ccfa7fca527bdee7040819e2a6699cc3701d71be49b7e0170b3f1e04d,0x3350504dd02b1227e0ffca433ea11a17bfed849ef2eb8d4daadcc3ec9466991e",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.40916372",
           txHash:
@@ -1661,7 +1487,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6893655200000001",
         miningPercentage: "100",
@@ -1695,14 +1521,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.68767952",
-        txHash:
-          "0x7e413846f544c43dc0aea0aea578e5f01aa93baf7fcc8ac3c8bef664c5a66470,0xe25c39b2d61e6a9fed0d9db9620c83e56205c9e48a81f3dbb3db739ee1f1ab3d,0x8365e39ddec664d1ef6dd0603555fb76ec792acc51b5a26f4be808b1b1cd92be",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.41783728",
           txHash:
@@ -1722,7 +1541,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.68767952",
         miningPercentage: "100",
@@ -1756,14 +1575,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.70788698",
-        txHash:
-          "0x69443bcbfb6ebe4d675e663a44297955179b74921b672d8af00ea83410606d7a,0xfce9c594e03f197a1a2fee5b72a2e8769e05fcf014decb54c0c0c5b1266d7e10,0x570c13b3fb8b2c2ac7ae5e76898a7910e765915ce1c2d03f330e70bcea1c1809",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06289246",
           txHash:
@@ -1783,7 +1595,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.70788698",
         miningPercentage: "100",
@@ -1817,14 +1629,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.70548542",
-        txHash:
-          "0x222c4c0415a6fff283afa8e25a33166fb726a51ac1f130d20161a26d8fd02b73,0xbf7eacef4e9b796a859b778e15ce152c03471b9c6051c6382a7d56c39382a72e,0xb8ec5f6bebd73ac11ae7b8406ccd1fa4747de939ad955eccf3588e47d6b9aae8",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.42581371",
           txHash:
@@ -1844,7 +1649,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.70548542",
         miningPercentage: "100",
@@ -1878,14 +1683,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.65325722",
-        txHash:
-          "0xc91bba933197ba393014df8a978a4858420077500a692de2410490e58c7480d0,0x226edfe0c16bec781d8bba1312ba60ef0e38af539b520f99f1fa0fddb65e3b00,0x37b1f64af4c63b9cc0d1b85984c1a921b920afd997a95f442e578d6f93aab24a",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.05901516",
           txHash:
@@ -1905,7 +1703,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.65325722",
         miningPercentage: "100",
@@ -1939,14 +1737,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.7067332900000001",
-        txHash:
-          "0xabf4b6346f31e36d4c7da0ad5cfa5e3a5dea463af5050d4f848971515ad756cd,0x77cde3cee2b4c465cce01aa2fa7556b03821786b806ee80376a5b65df1cb8e0f,0x6a43cde6515bf58f80f7e2283af77a5c61ee8790aaedabee2cbbe5185ddf975b",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06969415",
           txHash:
@@ -1966,7 +1757,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.7067332900000001",
         miningPercentage: "100",
@@ -2000,14 +1791,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.65967783",
-        txHash:
-          "0x408568cd0fc00e5831b42a228cf8ca0d274351aad49b39d7bae7a677be1d7a72,0x698f423e6bc6130d93e3a815fd797b6d15bcdfdd8646c529fef3ad6c0555a68e,0x71e4a1c019578c12c49038a615511f762222642905dbb24029c66d61138cc5f1",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06281725",
           txHash:
@@ -2027,7 +1811,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.65967783",
         miningPercentage: "100",
@@ -2061,14 +1845,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.64418941",
-        txHash:
-          "0x6855e64f6c6c488e493477d26224c165830465eb5fe79efbce3fff0c19415d60,0x204136bc2c225f6e1aab3a3b8b0d4d2cf4860b5a6f5cf4f27d938d5ab8231228,0x6973e998c8e94c3acf4ce372a39fecfef4bacf8aa49386e1ebd46be0f977279d",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06425607",
           txHash:
@@ -2088,7 +1865,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.64418941",
         miningPercentage: "100",
@@ -2122,14 +1899,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.67791081",
-        txHash:
-          "0x4a6224e2b976bb66516f4717dd5e2b1d82f3b8a5ec0a44bc3f2935b1f9aa4c86,0x8a56b84c0a9edcac3a00cf5e86feebee4b312bd58462b82139a472c61e1f488f,0x180b9a765c8a694288beda57e9e65efbeb640f885709dafd6ff7ba952faed698",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.0844015",
           txHash:
@@ -2149,7 +1919,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.67791081",
         miningPercentage: "100",
@@ -2183,14 +1953,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.69437439",
-        txHash:
-          "0xc17729391ace0f9db63eaf405077abea7b60a501febb4dc6b2b64b9de8ab61de,0xa7a8fde1524c786deb2f654fccf2e3565983b9a5e253c24d759dbc9b95788da0,0xb81eb8b93608139ee7e6c49c6b31fff7a9a2555430094bac44cf120091e952ce",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.39524983",
           txHash:
@@ -2210,7 +1973,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.69437439",
         miningPercentage: "100",
@@ -2244,14 +2007,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.67997739",
-        txHash:
-          "0x06e746c18c425a6683587d91cc5f0aaecabe5e9319aadfe4c3682a51389f9ca8,0x64bd8a5ff82e08c2707876cf89c57205ec54b61a7837091b9906ec0ea263691d,0x98050b045510dac3eccb7a7895f3b46b9f5b942cff5d26dae20b8741326c0198",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.06622009",
           txHash:
@@ -2271,7 +2027,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.67997739",
         miningPercentage: "100",
@@ -2305,14 +2061,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.73443699",
-        txHash:
-          "0x310907a39bde6dfbcc8bde518cf631322e6d8bede5cf731989cd731654798c35,0x1a48c94ca51313b35887d6ac95962ad0848583966adee3ec838af2dc33c9915f,0xd351a845c014a8404aa8efaa2de70954e1631772e196588794d71d454aee77a5",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.41025318",
           txHash:
@@ -2332,7 +2081,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.73443699",
         miningPercentage: "100",
@@ -2366,14 +2115,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.69653013",
-        txHash:
-          "0xe59c18a4215d4cf6fe074d93f693f4ab4040002a8252679e9e9867e4469b4913,0xd918d29e78e001a852c501f939251264270e61802a16e2a4500b5b5db5677733,0xc895f43dec0aaad8c59594cfc4ddd8c7a6a52a8aff53c0aba427dae05cd6d1d4",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.10124885",
           txHash:
@@ -2393,7 +2135,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.69653013",
         miningPercentage: "100",
@@ -2427,14 +2169,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.7326072800000001",
-        txHash:
-          "0xa0b664e4eb12b2510b22bc8092f02755c91b38cf40b19a432dfb6e37d0e93663,0x4315c171828bd31486c36e013cf22d540a37e56381dc63f527e5349cd26b18dc,0xfc9bde895a122e8f6194e935900d98ae9555d45f6bf0410cbf6f62ad85fc2a6d",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.10827789",
           txHash:
@@ -2454,7 +2189,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.7326072800000001",
         miningPercentage: "100",
@@ -2488,14 +2223,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.70786472",
-        txHash:
-          "0xc56da2afcbbf030e9a21f261e30e5f95d2af974f19c49d1342d9d8cacb6e5442,0x0aeb8dfdbead43f39be0f181013ea4f0d1a78819a4377d167e3dd97fb17503b4,0x797d22fd9f0107603b8b49f51982b118e679e9295557e3e357baaea140d4f365",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.10587968",
           txHash:
@@ -2515,7 +2243,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.70786472",
         miningPercentage: "100",
@@ -2549,14 +2277,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.6903563399999999",
-        txHash:
-          "0x7cda83e21f6c05ba6b29076e4de0e6cff22c3269f997a5a467722811573de650,0xeb524f5fca737766b1382e7278bc1736183068b72553fa3243a0b9976ab378d9,0x5137a8d847b7ece633994e4efd17453ba6e5275fdaa810ab41f82ee2ce7fe62b",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.37240142",
           txHash:
@@ -2576,7 +2297,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6903563399999999",
         miningPercentage: "100",
@@ -2610,14 +2331,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.66613808",
-        txHash:
-          "0x200b18839224cc17d763e226b1080b7a58652a3c40a5d9a15f315a0095a46e32,0xe968612b7d7616a26fe70c76b1862aea5bfdcd4aabbd218cd97660307efe9374,0x95dcf244fdd066841235396814e7c030267ffcea37fe0cb1817ca5a5b6c184a0",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.34915976",
           txHash:
@@ -2637,7 +2351,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.66613808",
         miningPercentage: "100",
@@ -2685,14 +2399,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "1.1444879",
-        txHash:
-          "0xb5564b876468455ddd0fb1f068fef827ca772be9a61ed64ae68f0e1c1fcc81c1,0x9c2da00df2aadf6beda3e3b0edb96de84327b85cdb6d05307b1e43bf130003ed,0x7108c3be352fc745efb219671e44fb3e0976ee682b5d760fc02dc079294a9a00,0x4b0b6335a2b0deab2ddcc211788fa548871bce09f2f43afa9bb323feaf5bde20,0x3910fec2bf029b24506853301fa6419dd9b21ee3657e26d29ec4161d39e60864",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.37454371",
           txHash:
@@ -2724,7 +2431,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "1.1444879",
         miningPercentage: "100",
@@ -2758,14 +2465,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.67097278",
-        txHash:
-          "0x82582cf84dc83ca4f6d5f51479e26a1ac11bcd75983a2d1deae9db00eae34234,0x931842f50a7f0cc3c105a372843aedc0b100aba345bb2ae0afed475d964e3f66,0x6dd1bd7da64c3d4fa5de739d2c01ca6b3057961dda0b5f50544e04075ae8fc45",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.10353193",
           txHash:
@@ -2785,7 +2485,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.67097278",
         miningPercentage: "100",
@@ -2819,14 +2519,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.72271601",
-        txHash:
-          "0x7fcaf3a1f500c275313cb6891e0110b20a5f711352391e7b2ebaaf8e4e10da5d,0x22922b15e4611336b297970461822427f48d0230439ef4ff61b52725577410cb,0xe4cfe689c48f1ca50c24f5cf253614e211b12b4efac647f5221fd174eb0d06d9",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.13359727",
           txHash:
@@ -2846,7 +2539,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.72271601",
         miningPercentage: "100",
@@ -2880,14 +2573,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.73907219",
-        txHash:
-          "0x585bf3aa45f51a6a40c7d1f22778f5f9549ea4a7da3207aecc1c413dcf769623,0x77da3eac6e9e0f01cba8c56b2fa3da38ccd6ea022b500d75947e36fb75edf647,0xf6820e9102c62b15fc5c67ace07dd96b326476f6f245b815d97308383d95bc9a",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.37568723",
           txHash:
@@ -2907,7 +2593,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.73907219",
         miningPercentage: "100",
@@ -2941,14 +2627,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.73420473",
-        txHash:
-          "0xd03846e1c8bc5745314306a5b147345f6d84ccb901e3f617a69b30d83578efe4,0xccf713909d204c9953bbb6e8d28581acefee1cfa2a6dcc2aa0252f9d0f9be315,0x2b43a006a1ac03540f04906ea2e9916b329cb3b18d2b05a64bcd4aef0fa5a5f9",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.36794465",
           txHash:
@@ -2968,7 +2647,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.73420473",
         miningPercentage: "100",
@@ -3002,14 +2681,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.72270781",
-        txHash:
-          "0x976639836850b81ef2941dc55d1a6495ba4d02ac5381ac2f2db229e1b42510a1,0xc4509825f6e66f96178ed16cc3f2894eeaebad111622aff9cb78846d9b21970e,0xc72640a6cfa8dd6641c6f8bff654395142d1f63ff84fc3173569afbdf80285fb",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.14414615",
           txHash:
@@ -3029,7 +2701,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.72270781",
         miningPercentage: "100",
@@ -3063,14 +2735,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.7309904299999999",
-        txHash:
-          "0xebeabf73a321576e7cee7d9770e54e5d72e168f58374658b6ca1a80cae5d25ac,0x5f5b5a0edeaecd0a06f69cc182a204ef58375d67986942a60a13b2d399a28101,0x98b281ff829a6c838314fd42bd1bbdb2038ebe04810edde12399709ddd39b14c",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.36847576",
           txHash:
@@ -3090,7 +2755,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.7309904299999999",
         miningPercentage: "100",
@@ -3124,14 +2789,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.7183271",
-        txHash:
-          "0x7d91807c6c42af4a623a1e7227fb3f8c8e9603a191274abbb92d3f83deac4e35,0x8993852a3efda64bb3f6a1a68019f84bfd03eb05af858203a42ef60a7d6f762e,0xceb067970bf057f05b274657b9bfc9d8fa56a3370b0e12b294493c7074359579",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.36860911",
           txHash:
@@ -3151,7 +2809,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.7183271",
         miningPercentage: "100",
@@ -3185,14 +2843,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.7010519900000001",
-        txHash:
-          "0xe35162603b8e851c471250b8177b0b9236fa64fc837a2924c16cf34990bc6e8e,0x26833d8a1ac6b3f6d7eb4f53d6f07212fa8f8d1e0896723101076ba84e71664b,0x7a7ddb6c6ce1fa7165441f6058504f1c5004652a684b5d6b256ff1ffa7633853",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.13724936",
           txHash:
@@ -3212,7 +2863,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.7010519900000001",
         miningPercentage: "100",
@@ -3246,14 +2897,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.6812417500000001",
-        txHash:
-          "0xaaef8d79587f6c4bb3f62e2afaa2a4ee5387c802a3f1428a55295118f1f268d1,0xf68625aa5a371a46ae525535d33ae157812b5b01eff26e0a6395b32cc82afcfd,0xb41488282853a5d6adf7dd6975bd26e8dc389e1634a19a546e320ac6c190b49f",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.35826803",
           txHash:
@@ -3273,7 +2917,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6812417500000001",
         miningPercentage: "100",
@@ -3307,14 +2951,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.69427",
-        txHash:
-          "0xc03586039014cc463b953c175fd9d83c3cbacbcf2ab5ea4504936e2670f1311e,0xa287f5999156711e7ac35e7a29b3704586c4be3e3242ea88469c6353931d7ad9,0xdf18f74d761d6220c1d75d2287692c201a34194e35d25e455d58d4742961b92f",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.13452056",
           txHash:
@@ -3334,7 +2971,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.69427",
         miningPercentage: "100",
@@ -3368,14 +3005,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.72230087",
-        txHash:
-          "0x0b50b9cba9a19a46e43803d17b3a730cd60fa7fa64130e46daa41cf84562983f,0xed92ce114519482e7d9b5d3e6fda63ded16787335e4948dcb7d7c357f3854f36,0x78b7da7308ba7c1c1e0245f50569d3e525ca068bfd021d4e3939bb7c267b5b07",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.13822768",
           txHash:
@@ -3395,7 +3025,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.72230087",
         miningPercentage: "100",
@@ -3429,14 +3059,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.7318030999999999",
-        txHash:
-          "0xd4b64b95a2bd73134ba9e04fc83578f0111bcd911b0d541e8b9d1fa20b4c33b0,0xd7ec1ab8ad818a889b1764f6647ace015eaf4ed60685aa80730d07e6c725aabe,0x57a1c7f639d03cba4b02c68b5bdbf073383ad4fcd4f864e4b4fda5843c700351",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.35401747",
           txHash:
@@ -3456,7 +3079,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.7318030999999999",
         miningPercentage: "100",
@@ -3490,14 +3113,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.73612029",
-        txHash:
-          "0x7709daa6e2ae30ca986556ca4ea0deabb93c4ca1314e4066a93680810d577547,0x3e7af6bc698eb35178c73446dfa9f209bb04866ecef95f3debc68bc5bb071bd7,0x7a7be57b34fb355c68e93b5616b50e8346aa3cfdb550657dfebc49d76508ccf5",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.14399063",
           txHash:
@@ -3517,7 +3133,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.73612029",
         miningPercentage: "100",
@@ -3551,14 +3167,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.70284285",
-        txHash:
-          "0x5d65d9e935ec444671aa74da66b598f5a638c17e3c7e19fc59374d9fb9d16f10,0x00e7d33f023b1d870435ce79b3dadb1c0d0a8b4c5c355c5b9ae751d85303335a,0xd2a84731b2d6fa3d1ee9b34ff8798bbcc049632b5f65a6f41e235b551357f264",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.12766638",
           txHash:
@@ -3578,7 +3187,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.70284285",
         miningPercentage: "100",
@@ -3612,14 +3221,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.65120818",
-        txHash:
-          "0x1d296aaeb05c2407cc23c13aecae801bfb033ae44f3835fb3be2d436861c01a6,0x8056efa4fd1dab71228bb25ad3e20e7d3e35c5dad5e451ff0318fa0db21703e8,0x53dbcc989d4301c3058bb0e8975d0b06d35e0ef49ed77deabb424bf289912564",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.1376142",
           txHash:
@@ -3639,7 +3241,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.65120818",
         miningPercentage: "100",
@@ -3680,14 +3282,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.67610835",
-        txHash:
-          "0x3ca79335e8755ec0a9ade04474dc087017bee884390a958218ddfcbd65f19bb1,0x13a4854c09978b87796ac87263d158efae643d0c5e81c7ebc8f1c460ac1438e9,0x56491ed325df7ab40e85c06ee1e6f0be5b5af64cadfaff193176a3284dac5d53,0xb1e5ed34dc8cb5e6f2aed2a85638ca4961d55c87a3126a705dd34a9f1b2a93f4",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.28102913",
           txHash:
@@ -3713,7 +3308,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.67610835",
         miningPercentage: "100",
@@ -3754,14 +3349,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.67435013",
-        txHash:
-          "0x970325b965c4f2d20aabc69031c68f056c784b71e5cae3d62220e7a5e5602245,0xae6a8e14ff8e613413652e9452031a000057b6678439814086477e7fc71af7da,0x40d1ebf9c0c42c6ebc590f7a8646b8f8e30bfe66767d1220cc5ec24f3516a399,0x9a9420af3740394c0fe3f944298632ee81f536298c29c27ede20076ed3e1272e",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.05545341",
           txHash:
@@ -3787,7 +3375,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.67435013",
         miningPercentage: "100",
@@ -3828,14 +3416,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.6468281",
-        txHash:
-          "0xdeeb3d765e6a4aa8fbfb85811895c03c7bd692cb6a3a8ccb0915f18c24ff1bd4,0x85314a80f951bd10765f7a433f102b5026ed4da77961b7c9734ea9b06d52aa1a,0xc063ca923a7678b9faef0df79673b071f7d34c08aa9f3d5e83699026054fb2fb,0xa306d5d35fa4ec74e5fa16dbe1aeb81f4a2effdde7c2686c94ed80d4c1eb5da8",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22740093",
           txHash:
@@ -3861,7 +3442,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6468281",
         miningPercentage: "100",
@@ -3902,14 +3483,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.72768804",
-        txHash:
-          "0x01d3a35cc34ed70accbe64d48a0be8452735f6836d8a9f410d5f8741779b6d75,0xb28534dac529fa54f384f87bfa9cd3ca78baefaac4ca497a647d22bbe8d58de0,0x43b685f766de02e9853749c326ec8d88965b1b14109b0d6d80326410188024ed,0x318697e84e8e471c38898d02370b7be61ebe9b1854526932e28970e4ee9ee5e2",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21188667",
           txHash:
@@ -3935,7 +3509,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.72768804",
         miningPercentage: "100",
@@ -3976,14 +3550,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.67278813",
-        txHash:
-          "0x83fc27495b44e5a452f5cfb9c7eab54baf6aa5b4f00692d24c7cb435f43af57f,0x97d08d6d112a5a50bff52094e817500491e21fcbacfb0b4c8232df9a95d167e2,0x534cd8bcf3dab20889ca873f23a88f447e418ff67a6203ea03250f860b9f7005,0xbe354c0e16aa478a9f74916b7a100bff1fbb4d71cda581ce10eb43b3b33cc521",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22620573",
           txHash:
@@ -4009,7 +3576,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.67278813",
         miningPercentage: "100",
@@ -4050,14 +3617,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.6387241100000001",
-        txHash:
-          "0x94440092fbacf15d88d578f58f41ba7da07c6bf662e13ea9b3da0aeb4cf10e6d,0x810944ac0d45eedcd0c9d5b8f3001827c9e64ddab0d214d1c7bcae00fd3b9740,0xd685f3d3cac282d93e46581f44c809f3cb63a3b44ca7b46224a1e065da9d37df,0xb2b950bdc1a0eda4d1a579b9690741351d5255fcc5d93249c51437fd837694e7",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22577297",
           txHash:
@@ -4083,7 +3643,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6387241100000001",
         miningPercentage: "100",
@@ -4117,14 +3677,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.58948436",
-        txHash:
-          "0xab61cb5c2c1e0448aed0399742af04c8d9d4d410fafac23e01de018cf00d9799,0x33f4f7a91ba5ba5ad618d9734478652008a807f01c07263192536215d89c3534,0xd55dc822b04afaf8797b6176645bcdcbc89e30615c1eefd16e77f94b86478ff6",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22632255",
           txHash:
@@ -4144,7 +3697,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.58948436",
         miningPercentage: "100",
@@ -4185,14 +3738,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.6609162",
-        txHash:
-          "0x947fe8a5c825fce97fcbf8b46e5136f22496572fc1a5e23952f6109fba61c18a,0xf75ae196c38859ff21404f0c445b573eee02167560ae69eb218396fb49f0020f,0xf2ae9cdda75bc7d6995d262c63c69bada1a422804e40b524cf14e1eddfd38fee,0x9b6176acfae322bb02a0ed07b47a09c20fe492d015a357dfaeedb6433c39f563",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22732681",
           txHash:
@@ -4218,7 +3764,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6609162",
         miningPercentage: "100",
@@ -4259,14 +3805,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.55537733",
-        txHash:
-          "0x35f006dd909874fd1a01db9c96e480df689512e4c5377c3f3ca263c34157157c,0x5f4e28dab6a5c4a4884c08cff71c90e056f5f7d546b8440a2e94d4d4f6cd732b,0x40703e3156e4866baccba23545a9b0eca8458709b1557d47b70cefabee841fb0,0x353678fc6fe3977a56d0ae445173660affaa63874c05680f51dc8e5b14916e7a",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22216983",
           txHash:
@@ -4292,7 +3831,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.55537733",
         miningPercentage: "100",
@@ -4326,14 +3865,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.47060396",
-        txHash:
-          "0x5abefb81a1eb9db557381176f7593192e428ac4e547a087d7ef317fb841f3a8a,0x652b549faac7ec9810aa2d2beeeeb9632df7e087dd857a338fb365f8bad74daa,0x2799fcab3fc16ef6342c413ca9d1564f035978af0a7878b7917d2503ad78fe15",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.22196284",
           txHash:
@@ -4353,7 +3885,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.47060396",
         miningPercentage: "100",
@@ -4394,14 +3926,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.62823902",
-        txHash:
-          "0x4a895f4bdea9ee354a1a9cc4a77ec68e33653301bb2d77fbbb7a67c33d4121d1,0x8db0a78b7aad6e8f70e17a4d05f40421f48024a80f08bab3c9d13b97aa7a3636,0xe9db07c7f9ccf251e8ab41254c51084abfb9eca1b8aaadb02262cd85f0d4084e,0x52ea1fa36d257a852c8d9fa2783ff4fc0b36261d8a1d32f4ced08abf1005100d",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21315419",
           txHash:
@@ -4427,7 +3952,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.62823902",
         miningPercentage: "100",
@@ -4461,14 +3986,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.47369093",
-        txHash:
-          "0x129e400d9bdc5cc762fcb001659240fa16a48c529c99434439f74d38e8d1b6d5,0xe665b945a035621a765706150d5b390be60d6eed2b5a2c9a546ea8f695cfa364,0x74340d57c6eeaaf98acd91b7ad3d01af9a77dad6487cfe580b2be56e17179541",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21926875",
           txHash:
@@ -4488,7 +4006,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.47369093",
         miningPercentage: "100",
@@ -4522,14 +4040,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.44940841000000004",
-        txHash:
-          "0x24ea8cce83554ef998cbdf42fe340dfdfa51135cf13ccb6bf6b8cc0f4fd91c5f,0xe2e86b31c4780242007f568ffe913b6224967494522b18af4db5fa0d359a96b5,0xd90c52e65bc8bc7b26fdd98cbc52a633ab1129f7a80d1a444a204d3e10aabdf6",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21548735",
           txHash:
@@ -4549,7 +4060,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.44940841000000004",
         miningPercentage: "100",
@@ -4590,14 +4101,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.6844924099999999",
-        txHash:
-          "0x526f2e4bacd339d3250a7ca9bef1b151f1869ae62e14c37ff1b815d6712b7efd,0x6a175aa3669e00144b72bf1a7e98955c094372bdb705a8868fd6857eb325d674,0x9d8830bb34e6371b59182f5c9a64cfab1761d3991497b021bf76d84d0102294e,0x6c22fbe790b22cce6fec85cc5bd476082d3785241da38cb59aaf4e67b0fac63b",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.20394613",
           txHash:
@@ -4623,7 +4127,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6844924099999999",
         miningPercentage: "100",
@@ -4664,14 +4168,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.59721926",
-        txHash:
-          "0x7ba0dad86cb92ed01165cd8e27a71dfeabbf853c73d99d069db9bf9cb3e6ce69,0x1ef9ec1cda8743ab348df91f8d87e2fa0343c5d179ea6d9ae889fbc5ce30864a,0x3676369d1fb8466d6c24958756f295ba4b9b61c31c6d8dabf8267fd67f6f31c1,0xab549ba3c997a0c00957786560b5debed7cced930617726343e13339e7d0f17e",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.20746728",
           txHash:
@@ -4697,7 +4194,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.59721926",
         miningPercentage: "100",
@@ -4738,14 +4235,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.61612307",
-        txHash:
-          "0x87b39d26f8d38cc020772364f51c2869b5dcb9b1099598e3288f54f1ed965d56,0x36faac2206e04edc7c8b7219d8b332a83ec3524f156fd611e6f02c31a03c144c,0x2b9b34bc6ec275f8075b17de8fc31b354941467cb0d71ea4eaba37480be8dc92,0x6649f5853d18db2a9a9764435c18409e47959a058cbd957073ae62dfb97a007f",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.20499188",
           txHash:
@@ -4771,7 +4261,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.61612307",
         miningPercentage: "100",
@@ -4805,14 +4295,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.59893793",
-        txHash:
-          "0x4207c5784bd3b518a7266b7b39a8322b2233e3f7fd8708f29a4b26c13efaf192,0xfac569514aeba895afe4b51061589b9e8a58fe35a50ac5bb531af307357e8145,0x59710c31db516b5993b20eda266d07fbdb4b93673379a4d14d2cd6c0de305418",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.19982779",
           txHash:
@@ -4832,7 +4315,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.59893793",
         miningPercentage: "100",
@@ -4866,14 +4349,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.58912078",
-        txHash:
-          "0x9f7f045d464121db57bb1870e0757d4510844deacc11bbe73aad4ef93d90d416,0xd5015d9633ef1fd0c3a92642165b28c74ef16c05f546c8889e80df4c1b2987e3,0xf975b3ad1287db6e44884ab5453636933cf2ccd0e50ed602bb3accdb2b8edfb0",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.19042304",
           txHash:
@@ -4893,7 +4369,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.58912078",
         miningPercentage: "100",
@@ -4927,14 +4403,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.60174034",
-        txHash:
-          "0xf91b8bce6dcd7b35a1c5ec8e52d5d48c7754d932a239ab3a7ab1c705c5968add,0x699a4520983beed082ad0c217bfe2c9d882c551e2d820a20902ee4173162b138,0x6f2bab80d626f2098a4117029c429cf839752f3ddb39335e60c624868e12e6dc",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.2102889",
           txHash:
@@ -4954,7 +4423,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.60174034",
         miningPercentage: "100",
@@ -4988,14 +4457,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.60512708",
-        txHash:
-          "0x58dec0058af46a7bbc55857a8e8e2412cfae6766b85a50d55e6e94839c9c195a,0x053db68495aa1dee0b6b46433f7e07e657c5b16e63e64ccefc164ffcc80e0680,0x7b36daf18c6735bc97d3a440b5e6fbb7e383921fb4885db159f5fcc8920017b0",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.21520495",
           txHash:
@@ -5015,7 +4477,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.60512708",
         miningPercentage: "100",
@@ -5049,14 +4511,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.59882758",
-        txHash:
-          "0x48bb4cb4f2260f4dcb14fbc71fd79974b4e1b332d63776e4df0ffc767efdf424,0x00da23f6cd7fa2e6a5978ed61d1dbf1067a47bfc7b6289b1236082a77bfadce4,0x40ab23007abd9db6746a5879bb3b84a8334f25c27038980470b0d6b9b56ab728",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.20541081",
           txHash:
@@ -5076,7 +4531,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.59882758",
         miningPercentage: "100",
@@ -5110,14 +4565,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.58899055",
-        txHash:
-          "0x50a3579d79c13bcaef9a623d5a0c53bc899fcd8064d80ad8020cb52e2bbd95c5,0x730388e364f84e830e67d61a39d1ed534ab543e5877d07b02e871f59960944ae,0xc7c9a30d64f0619ccbe2f1d7dcf56c91969706c79475a7266bc0e70766cb41c1",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.19388308",
           txHash:
@@ -5137,7 +4585,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.58899055",
         miningPercentage: "100",
@@ -5171,14 +4619,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.56158052",
-        txHash:
-          "0x19a2f95e16013d9af29478841aa4f9e6aae0609a36c24dc395056abe4821da79,0xf91079d16093e431a5d1b6ac51a5bb16a2fb8e8d24577746a5d02517d31a3022,0xc473574b7f4c0bfe5a2f9c24ebf307c02df513935ad5a5c80d0ff85488610509",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.1796366",
           txHash:
@@ -5198,7 +4639,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.56158052",
         miningPercentage: "100",
@@ -5232,14 +4673,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.57537947",
-        txHash:
-          "0x4095380d852efb6514fd9bfb6f93b966ee57992863617db15e05ba14866fce81,0x28ba8012a9deca7393b8efef6181ec3290c2e2da42a7a3d45ec375e4b66aac86,0xe0f6d7ef971c506b348b3d4c6e8db636d011cfb2f537d8e226a367b5f2c3ed9c",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.18294021",
           txHash:
@@ -5259,7 +4693,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.57537947",
         miningPercentage: "100",
@@ -5293,14 +4727,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.77449133",
-        txHash:
-          "0x15ff338575cfd27e2bc269b20e0d52e39db933b042d8b462a1a19b1a385d15f7,0x1a7ad9ebf66f2c4a81d2a67cbd00d9b5b13f77e29bb5f519eb2919d79c9e748b,0xa7fa8e47c5f9fc0063673af20668829b21ad5fdad8cb8335be44dac73720213a",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.17926706",
           txHash:
@@ -5320,7 +4747,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.77449133",
         miningPercentage: "100",
@@ -5361,14 +4788,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.61046843",
-        txHash:
-          "0xe05ba5e2a2a56d1232be5f4a414789fd1457f5fa1e9df60b49556aa5d647ba8f,0xcbc2cb0d0ec165a60083750a241139f302a705ced68e1b72aded85214b81c999,0x21709b169fc24cdf2a6937b4c23be6fa728f9dc604d73d7996e056a7a449c299,0xa5a31d8b18f9169182d1686d7fa5b335b03087271fd739f667c77a3844272e28",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.1774053",
           txHash:
@@ -5394,7 +4814,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.61046843",
         miningPercentage: "100",
@@ -5428,14 +4848,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.43906258",
-        txHash:
-          "0x29f0841fcfde355d7e1ac305c45e7efd651e03b3d2092fb10c29b49dc132a19b,0x9cc406d2f374d8ce05180c25eda4db6cdf6809516fb0adfb9f97aae0de54b585,0x64623c430fb2652d7f61f3fbe0e0d129cc6167918888b095eb71ac552326a87d",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.15113295",
           txHash:
@@ -5455,7 +4868,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.43906258",
         miningPercentage: "100",
@@ -5496,14 +4909,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.6039466499999999",
-        txHash:
-          "0x20a8797c210d04426106b01d44366c9fd3d5955826a69090ac7da17e5e93db24,0xefd5c0662fc94f914339ce43df391679a15265fc263090573518d5db3166dc86,0x5683d23ab2a0b27a880a730a21a273705d807b72903cb95edaa19b8e51b18ed4,0xf66cd27a53f4ec0161e8cc8c92661b929a789782aba79563f9db0e7e8eacb437",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.10132232",
           txHash:
@@ -5529,7 +4935,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6039466499999999",
         miningPercentage: "100",
@@ -5563,14 +4969,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.51533403",
-        txHash:
-          "0x6291b4ab761a211d6e38b3342facdf9eb0ae32bc178868f2e7968dfbf81afaaf,0x4c71c0e34c9508298f566e516cbc0a6825b53d942b3c72455d81851b9d8190df,0x5b9404deec058e138c6f46975445bf50d2df66cc81c034e44902d178c5cee19a",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.14389687",
           txHash:
@@ -5590,7 +4989,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.51533403",
         miningPercentage: "100",
@@ -5624,14 +5023,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.6291305899999999",
-        txHash:
-          "0xf1185c3d8e3a46faaae51c1b763204f2706cdf84d67cfa347cf15843711ec4f6,0xce4e381673d582a02f0930b90b03c9c4768fe97eb236d266381690eb58dcf6e5,0xbbe75379b21d97c99cf3c17b8f9f5908567204aa8cf1b8dc8142654fc58d34ef",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.18336576",
           txHash:
@@ -5651,7 +5043,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.6291305899999999",
         miningPercentage: "100",
@@ -5692,14 +5084,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.65764135",
-        txHash:
-          "0x5ff7709455a36647ef83b319ab1eca0e3b635673ad23e2cb47381da50b1c82df,0x288d2013d7f76ef84027cb74f02594fc40c508084f0f1ca77400d4397a283544,0x58f33458c6d51f13a7cc4f37b2c91b6e2a4e59287f8f4d53f324f2ccb13e169e,0x0de81dd60d86f0f6d5167183ce42d90b8eb7a9399cbe07f5a33cdcb55a684d78",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.13580599",
           txHash:
@@ -5725,7 +5110,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.65764135",
         miningPercentage: "100",
@@ -5752,14 +5137,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.26436625",
-        txHash:
-          "0xfff85a393572c2f45718e4eb68731d8cb06f4de39d5d1947413eacbbcd243a62,0x7f8c934424228cc90a71028d3235e6f3cd7e3ab303dd4addfee9e54928dc26ac",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.13227825",
           txHash:
@@ -5773,7 +5151,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.26436625",
         miningPercentage: "100",
@@ -5807,14 +5185,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.57361398",
-        txHash:
-          "0x69e5f17a1d2c5b3da72176d7b2b3eee5c6d81f754095c4376abd99be4c13e3e4,0xaa3b445f1811bb628d077c0266c5cb0d92c2dcd56d3af603332c97753404c0fd,0xf58fbd8bf87aac31d0eebdbaecfa27ad9bb919355b2de6d7d8687e82f49bb40d",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.24533017",
           txHash:
@@ -5834,7 +5205,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.57361398",
         miningPercentage: "100",
@@ -5875,14 +5246,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.62172867",
-        txHash:
-          "0x3b9770c98b81d5b1427c5b4a04cb2d888dfb536295e3bd4a96ea7eb70dc57446,0xd04132b499656d35a04d05409f1f997d617e06f8ca8c51a484fdae8a6743d4ff,0x6cf7b32cd9a6d26ee6fd3ed35e83b4b79c279195de2dbdf91d9e71a09357cba9,0x6e302179714d87416c9b628e4974918de1cbeb425e0c5112884af7a0e90cfa83",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.1783788",
           txHash:
@@ -5908,7 +5272,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.62172867",
         miningPercentage: "100",
@@ -5942,14 +5306,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.51012811",
-        txHash:
-          "0x2fb7762ceb63bccb30b6cb9b955e47a33128ff4b64d392c0683ee99cf9d033f3,0xe9206dbf0b4816f869f8d95733838b730084a62e30f2b875140108af238204ee,0x775b1b6c4149c294c28e110ac9420b3194e5acb21c435acc54504ca6b2a68467",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.15609944",
           txHash:
@@ -5969,7 +5326,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.51012811",
         miningPercentage: "100",
@@ -6003,14 +5360,7 @@ const test = {
           destination: "burnVault",
         },
       ],
-      burnVaultCore: {
-        amount: "0.61700624",
-        txHash:
-          "0xd44eba73cce13b0cf2632d13990f255e7b16210247b89258437f40765ccd09e1,0x0e88b11a701402a7428dcfda19b3c60e0e98539c8ca9996b09e773ca31e33dc3,0x024dc3402ea71b844e66113ff1e100353caefab40fed9ba7450c42c3a9bffa66",
-        percentage: "100",
-      },
-      bvBoost: { amount: "0", txHash: "", percentage: "0" },
-      burnVaultCoreList: [
+      burnVaultCore: [
         {
           amount: "0.2699055",
           txHash:
@@ -6030,7 +5380,7 @@ const test = {
           percentage: "100",
         },
       ],
-      bvBoostList: [],
+      bvBoost: [],
       breakdown: {
         miningTotal: "0.61700624",
         miningPercentage: "100",

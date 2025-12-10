@@ -250,27 +250,36 @@ export async function getIncomeDistributionWithLegacy(date: string) {
         }))
       : [];
 
-  let burnVaultCore =
-    base.burnVaultCore ||
-    legacyCoreList ||
-    (base.paymentTxHash
-      ? [
-          {
-            amount: total,
-            txHash: base.paymentTxHash,
-            percentage: "100",
-          },
-        ]
-      : []);
-
-  // Normalize possible single-object shapes into arrays
-  if (!Array.isArray(burnVaultCore)) {
-    burnVaultCore = burnVaultCore ? [burnVaultCore] : [];
-  }
+  let burnVaultCore = base.burnVaultCore || legacyCoreList || [];
+  if (!Array.isArray(burnVaultCore)) burnVaultCore = burnVaultCore ? [burnVaultCore] : [];
 
   let bvBoost = base.bvBoost || [];
-  if (!Array.isArray(bvBoost)) {
-    bvBoost = bvBoost ? [bvBoost] : [];
+  if (!Array.isArray(bvBoost)) bvBoost = bvBoost ? [bvBoost] : [];
+
+  // Fallback: for new data without explicit arrays, build them from stored amounts/tx
+  if (burnVaultCore.length === 0 && base.paymentTxHash) {
+    const burnAmount = base.burnAmount || base.totalBTCIncome || total;
+    const burnPct =
+      Number(total || "0") > 0 ? ((Number(burnAmount || "0") / Number(total || "0")) * 100).toFixed(2) : "0";
+    burnVaultCore = [
+      {
+        amount: burnAmount,
+        txHash: base.paymentTxHash,
+        percentage: burnPct,
+      },
+    ];
+  }
+
+  if (bvBoost.length === 0 && base.paymentTxHash && base.slsAmount) {
+    const boostPct =
+      Number(total || "0") > 0 ? ((Number(base.slsAmount || "0") / Number(total || "0")) * 100).toFixed(2) : "0";
+    bvBoost = [
+      {
+        amount: base.slsAmount,
+        txHash: base.paymentTxHash,
+        percentage: boostPct,
+      },
+    ];
   }
 
   return {
