@@ -42,22 +42,12 @@ export interface IncomeDistribution {
   yearMonth?: string; // YYYY-MM for GSI
   totalBTCIncome: string;
   miningPayouts: MiningPayout[];
-  burnVaultCore?: {
-    amount?: string;
-    txHash?: string;
-    percentage?: string;
-  };
-  bvBoost?: {
-    amount?: string;
-    txHash?: string;
-    percentage?: string;
-  };
-  burnVaultCoreList?: Array<{
+  burnVaultCore?: Array<{
     amount: string;
     txHash: string;
     percentage: string;
   }>;
-  bvBoostList?: Array<{
+  bvBoost?: Array<{
     amount: string;
     txHash: string;
     percentage: string;

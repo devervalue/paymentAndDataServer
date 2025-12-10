@@ -240,7 +240,7 @@ export async function getIncomeDistributionWithLegacy(date: string) {
 
   const miningTotal = mergedPayouts.reduce((acc, p) => acc + Number(p.amount || "0"), 0).toString();
 
-  // Build burnVaultCoreList and bvBoostList (legacy: all to core, no boost)
+  // Build burnVaultCore and bvBoost as arrays
   const legacyCoreList =
     legacyPayouts.length > 0
       ? legacyPayouts.map((p) => ({
@@ -249,30 +249,43 @@ export async function getIncomeDistributionWithLegacy(date: string) {
           percentage: "100",
         }))
       : [];
-  const burnVaultCoreList = base.burnVaultCoreList || legacyCoreList;
-  const bvBoostList = base.bvBoostList || [];
+
+  let burnVaultCore =
+    base.burnVaultCore ||
+    legacyCoreList ||
+    (base.paymentTxHash
+      ? [
+          {
+            amount: total,
+            txHash: base.paymentTxHash,
+            percentage: "100",
+          },
+        ]
+      : []);
+
+  // Normalize possible single-object shapes into arrays
+  if (!Array.isArray(burnVaultCore)) {
+    burnVaultCore = burnVaultCore ? [burnVaultCore] : [];
+  }
+
+  let bvBoost = base.bvBoost || [];
+  if (!Array.isArray(bvBoost)) {
+    bvBoost = bvBoost ? [bvBoost] : [];
+  }
 
   return {
     date: normalizedDate,
     totalBTCIncome: total,
     miningPayouts: mergedPayouts,
-    burnVaultCore: base.burnVaultCore || {
-      amount: total,
-      txHash: burnVaultCoreList.map((b) => b.txHash).filter(Boolean).join(","),
-      percentage: "100",
-    },
-    bvBoost: base.bvBoost || {
-      amount: "0",
-      txHash: "",
-      percentage: "0",
-    },
-    burnVaultCoreList,
-    bvBoostList,
+    burnVaultCore,
+    bvBoost,
     breakdown: {
       miningTotal,
       miningPercentage: "100",
-      corePercentage: base.burnVaultCore?.percentage || "100",
-      boostPercentage: base.bvBoost?.percentage || "0",
+      corePercentage: burnVaultCore.length
+        ? burnVaultCore[0]?.percentage || "100"
+        : "0",
+      boostPercentage: bvBoost.length ? bvBoost[0]?.percentage || "0" : "0",
     },
   };
 }
@@ -345,7 +358,7 @@ export async function getIncomeHistory(params: { startDate?: string; endDate?: s
     .map(([d, items]) => {
       const payouts = items.map((l) => mapLegacy(d, l));
       const total = sumBtc(payouts);
-      const burnVaultCoreList = payouts.map((p) => ({
+      const burnVaultCore = payouts.map((p) => ({
         amount: p.amountBtc,
         txHash: p.memo || p.btcTxHash || "",
         percentage: "100",
@@ -355,10 +368,8 @@ export async function getIncomeHistory(params: { startDate?: string; endDate?: s
         yearMonth: yearMonthFromDate(d),
         miningPayouts: payouts,
         totalBTCIncome: total,
-        burnVaultCore: { amount: total, txHash: burnVaultCoreList.map((b) => b.txHash).filter(Boolean).join(","), percentage: "100" },
-        bvBoost: { amount: "0", txHash: "", percentage: "0" },
-        burnVaultCoreList,
-        bvBoostList: [],
+        burnVaultCore,
+        bvBoost: [],
         breakdown: {
           miningTotal: total,
           miningPercentage: "100",
