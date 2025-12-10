@@ -162,7 +162,13 @@ export async function executePayment(input: ExecutePaymentInput) {
     const completedAt = now();
     await updatePaymentRun(runId, { status: "success", completedAt });
 
-    await upsertDistribution(parsed.date, parsed.miningPayouts, paymentRun.btcTotalIncome!, runId, tx.hash);
+    await upsertDistribution(
+      parsed.date,
+      parsed.miningPayouts,
+      paymentRun.btcTotalIncome!,
+      runId,
+      tx.hash
+    );
 
     return {
       ...paymentRun,
@@ -206,9 +212,6 @@ async function upsertDistribution(
     yearMonth,
     miningPayouts: mergedPayouts,
     totalBTCIncome: mergedTotal,
-    burnVaultCore: existing?.burnVaultCore,
-    bvBoost: existing?.bvBoost,
-    breakdown: existing?.breakdown,
     paymentRunId: runId,
     paymentTxHash: txHash,
     createdAt: existing?.createdAt || nowTs,
@@ -226,6 +229,9 @@ export async function getIncomeDistributionWithLegacy(date: string) {
     createdAt: now(),
     updatedAt: now(),
   };
+  const baseYearMonth = base.yearMonth || yearMonthFromDate(normalizedDate);
+  const basePaymentTxHash = base.paymentTxHash || "";
+  const basePaymentRunId = base.paymentRunId || "";
 
   const legacyItems = await queryAllLegacyByDate(normalizedDate);
   const legacyPayouts = legacyItems.map((l) => mapLegacy(normalizedDate, l));
@@ -291,8 +297,11 @@ export async function getIncomeDistributionWithLegacy(date: string) {
 
   return {
     date: normalizedDate,
+    yearMonth: baseYearMonth,
     totalBTCIncome: total,
     miningPayouts: mergedPayouts,
+    paymentTxHash: basePaymentTxHash,
+    paymentRunId: basePaymentRunId,
     burnVaultCore,
     bvBoost,
     breakdown: {
@@ -382,6 +391,10 @@ export async function getIncomeHistory(params: { startDate?: string; endDate?: s
         yearMonth: yearMonthFromDate(d),
         miningPayouts: payouts,
         totalBTCIncome: total,
+        burnAmount: total,
+        slsAmount: "0",
+        paymentTxHash: "",
+        paymentRunId: "legacy",
         burnVaultCore,
         bvBoost: [],
         breakdown: {

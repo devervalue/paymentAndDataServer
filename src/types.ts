@@ -62,7 +62,6 @@ export interface IncomeDistribution {
     boostPercentage?: string;
   };
   paymentRunId?: string;
-  paymentTxHash?: string;
   createdAt: number;
   updatedAt: number;
 }
