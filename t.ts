@@ -1,27 +1,27 @@
 const t = {
-  date: "2024-12-15",
+  date: "2024-12-18",
   yearMonth: "2024-12",
-  totalBTCIncome: "0.2886358",
+  totalBTCIncome: "0.29639888",
   miningPayouts: [
     {
       payoutNumber: 0,
-      amount: "0.2886358",
+      amount: "0.29639888",
       txHash:
-        "107bb54856c2f62f52ab4da63913d030b53e3ae7702df04d28070c4bf3188821",
+        "2811c0a4e974c4cbcdc21a8b8ac0bfc9cf2ca5676b7a253fb44f1e8588c12258",
       destination: "burnVault",
     },
   ],
   burnVaultCore: [
     {
-      amount: "0.2886358",
+      amount: "0.29639888",
       txHash:
-        "0xc940536c27e57109e796309b1a88f263e309a4fe5dc652a8b81955a608ad59df",
+        "0x5b3fd962b413f4750962879f49faf8e48d2e3da60c1cbbc70f74add767fe90c1",
       percentage: "100",
     },
   ],
   bvBoost: [],
   breakdown: {
-    miningTotal: "0.2886358",
+    miningTotal: "0.29639888",
     miningPercentage: "100.00",
     corePercentage: "100.00",
     boostPercentage: "0.00",

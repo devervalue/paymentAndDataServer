@@ -88,9 +88,9 @@ function yearMonthFromDate(dateStr: string) {
   return normalizeDate(dateStr).slice(0, 7);
 }
 
-function mapLegacy(date: string, raw: any): MiningPayout {
+function mapLegacy(date: string, raw: any, idx?: number): MiningPayout {
   return {
-    payoutNumber: raw.payoutNumber || 0,
+    payoutNumber: raw.payoutNumber ?? idx ?? 0,
     amountBtc: (raw.pago ?? raw.amountBtc ?? "0").toString(),
     btcTxHash: raw.txHash || raw.btcTxHash || "",
     walletFrom: raw.walletFrom,
@@ -272,12 +272,19 @@ export async function getIncomeDistributionWithLegacy(date: string) {
   let inferredBurnAmount = base.totalBTCIncome || "0";
   let inferredSlsAmount = "0";
 
-  const legacyItems = await queryAllLegacyByDate(normalizedDate);
-  const legacyPayouts = legacyItems.map((l) => mapLegacy(normalizedDate, l));
+  // Pull legacy items by date; if none, fallback to month query then filter
+  let legacyItems = await queryAllLegacyByDate(normalizedDate);
+  if (!legacyItems.length) {
+    const ym = yearMonthFromDate(normalizedDate);
+    const monthly = await queryAllLegacyByMonth(ym);
+    legacyItems = monthly.filter((m) => normalizeDate(m.date) === normalizedDate);
+  }
+
+  const legacyPayouts = legacyItems.map((l, idx) => mapLegacy(normalizedDate, l, idx));
   const total = (Number(base.totalBTCIncome) + Number(sumBtc(legacyPayouts))).toString();
 
-  const mergedPayouts = [...base.miningPayouts, ...legacyPayouts].map((p) => ({
-    payoutNumber: p.payoutNumber,
+  const mergedPayouts = [...base.miningPayouts, ...legacyPayouts].map((p, idx) => ({
+    payoutNumber: p.payoutNumber ?? idx,
     amount: p.amountBtc,
     txHash: p.btcTxHash,
     destination: p.destination || "EVA",
@@ -286,12 +293,15 @@ export async function getIncomeDistributionWithLegacy(date: string) {
   const miningTotal = mergedPayouts.reduce((acc, p) => acc + Number(p.amount || "0"), 0).toString();
 
   // Build burnVaultCore and bvBoost as arrays
+  const totalNum = Number(total || "0");
+  const pct = (part: number) => (totalNum > 0 ? ((part / totalNum) * 100).toFixed(2) : "0");
+
   const legacyCoreList =
     legacyPayouts.length > 0
       ? legacyPayouts.map((p) => ({
           amount: p.amountBtc,
           txHash: p.memo || p.btcTxHash || "",
-          percentage: "100",
+          percentage: pct(Number(p.amountBtc || "0")),
         }))
       : [];
 
@@ -376,9 +386,7 @@ export async function getIncomeDistributionWithLegacy(date: string) {
   // Derive breakdown percentages from amounts if available
   const coreAmountNum = burnVaultCore.reduce((acc, b) => acc + Number(b.amount || "0"), 0);
   const boostAmountNum = bvBoost.reduce((acc, b) => acc + Number(b.amount || "0"), 0);
-  const totalNum = Number(total || "0");
   const miningNum = Number(miningTotal || "0");
-  const pct = (part: number) => (totalNum > 0 ? ((part / totalNum) * 100).toFixed(2) : "0");
 
   return {
     date: normalizedDate,
