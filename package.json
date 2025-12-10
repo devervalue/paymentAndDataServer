@@ -1,0 +1,26 @@
+{
+  "name": "pagos-autom-sls",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "build": "tsc --noEmit",
+    "tables": "ts-node scripts/createTables.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.609.0",
+    "@aws-sdk/lib-dynamodb": "^3.609.0",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.12.0",
+    "express": "^4.19.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.30",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
+

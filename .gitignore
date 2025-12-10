@@ -1,0 +1,45 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Build & dist
+dist/
+build/
+coverage/
+coverage-*/
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Local tooling
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Hardhat/Foundry artifacts
+cache/
+artifacts/
+
+# Logs
+*.log
+
+# Temp
+tmp/
+temp/
+
+# AWS SAM/Serverless (if used)
+.aws-sam/
+.serverless/
