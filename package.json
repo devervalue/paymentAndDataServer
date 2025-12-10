@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node dist/server.js",
+    "start": "npm run build && node dist/src/server.js",
     "create:tables": "npm run build && node dist/scripts/createTables.js",
     "import:legacy": "npm run build && node dist/scripts/fetchLegacy.js"
   },
