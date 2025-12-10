@@ -43,4 +43,3 @@ temp/
 # AWS SAM/Serverless (if used)
 .aws-sam/
 .serverless/
-t.ts

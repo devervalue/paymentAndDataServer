@@ -228,7 +228,6 @@ async function upsertDistribution(
     totalBTCIncome: mergedTotal,
     burnAmount: burnAmount.toString(),
     slsAmount: slsAmount.toString(),
-    paymentTxHash: txHash,
     burnVaultCore: [
       {
         amount: burnAmount.toString(),
@@ -252,7 +251,6 @@ async function upsertDistribution(
       corePercentage: pct(burnNum),
       boostPercentage: pct(slsNum),
     },
-    paymentRunId: runId,
     createdAt: existing?.createdAt || nowTs,
     updatedAt: nowTs,
   };
@@ -269,8 +267,8 @@ export async function getIncomeDistributionWithLegacy(date: string) {
     updatedAt: now(),
   };
   const baseYearMonth = base.yearMonth || yearMonthFromDate(normalizedDate);
-  const basePaymentTxHash = base.paymentTxHash || "";
-  const basePaymentRunId = base.paymentRunId || "";
+  const basePaymentTxHash = (base as any).paymentTxHash || "";
+  const basePaymentRunId = (base as any).paymentRunId || "";
   let inferredBurnAmount = base.totalBTCIncome || "0";
   let inferredSlsAmount = "0";
 
@@ -342,26 +340,26 @@ export async function getIncomeDistributionWithLegacy(date: string) {
   }
 
   // Legacy fallback
-  if (burnVaultCore.length === 0 && base.paymentTxHash) {
+  if (burnVaultCore.length === 0 && basePaymentTxHash) {
     const burnAmount = base.totalBTCIncome || total;
     const burnPct =
       Number(total || "0") > 0 ? ((Number(burnAmount || "0") / Number(total || "0")) * 100).toFixed(2) : "0";
     burnVaultCore = [
       {
         amount: burnAmount,
-        txHash: base.paymentTxHash,
+        txHash: basePaymentTxHash,
         percentage: burnPct,
       },
     ];
   }
 
-  if (bvBoost.length === 0 && base.paymentTxHash && base.slsAmount) {
+  if (bvBoost.length === 0 && basePaymentTxHash && base.slsAmount) {
     const boostPct =
       Number(total || "0") > 0 ? ((Number(base.slsAmount || "0") / Number(total || "0")) * 100).toFixed(2) : "0";
     bvBoost = [
       {
         amount: base.slsAmount,
-        txHash: base.paymentTxHash,
+        txHash: basePaymentTxHash,
         percentage: boostPct,
       },
     ];
@@ -379,8 +377,6 @@ export async function getIncomeDistributionWithLegacy(date: string) {
     yearMonth: baseYearMonth,
     totalBTCIncome: total,
     miningPayouts: mergedPayouts,
-    paymentTxHash: basePaymentTxHash,
-    paymentRunId: basePaymentRunId,
     burnVaultCore,
     bvBoost,
     breakdown: {
@@ -472,8 +468,6 @@ export async function getIncomeHistory(params: { startDate?: string; endDate?: s
         totalBTCIncome: total,
         burnAmount: total,
         slsAmount: "0",
-        paymentTxHash: "",
-        paymentRunId: "legacy",
         burnVaultCore,
         bvBoost: [],
         breakdown: {

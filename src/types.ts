@@ -44,7 +44,6 @@ export interface IncomeDistribution {
   miningPayouts: MiningPayout[];
   burnAmount?: string;
   slsAmount?: string;
-  paymentTxHash?: string;
   burnVaultCore?: Array<{
     amount: string;
     txHash: string;
@@ -61,7 +60,6 @@ export interface IncomeDistribution {
     corePercentage?: string;
     boostPercentage?: string;
   };
-  paymentRunId?: string;
   createdAt: number;
   updatedAt: number;
 }
