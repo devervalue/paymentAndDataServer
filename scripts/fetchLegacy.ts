@@ -39,7 +39,7 @@ function satsToBtcString(n: number | string) {
 async function main() {
   const resp = await fetch(LEGACY_URL);
   if (!resp.ok) throw new Error(`Fetch failed: ${resp.status}`);
-  const data = await resp.json();
+  const data = await resp.json() as any;
   const items = Array.isArray(data?.body) ? data.body : [];
   console.log(`Fetched ${items.length} legacy payouts`);
 
