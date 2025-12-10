@@ -282,6 +282,13 @@ export async function getIncomeDistributionWithLegacy(date: string) {
     ];
   }
 
+  // Derive breakdown percentages from amounts if available
+  const coreAmountNum = burnVaultCore.reduce((acc, b) => acc + Number(b.amount || "0"), 0);
+  const boostAmountNum = bvBoost.reduce((acc, b) => acc + Number(b.amount || "0"), 0);
+  const totalNum = Number(total || "0");
+  const miningNum = Number(miningTotal || "0");
+  const pct = (part: number) => (totalNum > 0 ? ((part / totalNum) * 100).toFixed(2) : "0");
+
   return {
     date: normalizedDate,
     totalBTCIncome: total,
@@ -290,11 +297,9 @@ export async function getIncomeDistributionWithLegacy(date: string) {
     bvBoost,
     breakdown: {
       miningTotal,
-      miningPercentage: "100",
-      corePercentage: burnVaultCore.length
-        ? burnVaultCore[0]?.percentage || "100"
-        : "0",
-      boostPercentage: bvBoost.length ? bvBoost[0]?.percentage || "0" : "0",
+      miningPercentage: pct(miningNum),
+      corePercentage: pct(coreAmountNum || (burnVaultCore[0]?.percentage ? (Number(burnVaultCore[0].percentage) / 100) * totalNum : 0)),
+      boostPercentage: pct(boostAmountNum || (bvBoost[0]?.percentage ? (Number(bvBoost[0].percentage) / 100) * totalNum : 0)),
     },
   };
 }
