@@ -32,7 +32,8 @@ const executeSchema = z.object({
   slsShareBps: z.number().int().min(0).max(10_000),
   increaseSLS: z.boolean(),
   additionalEva: z.string(),
-  amount: z.string(),
+  // Optional: if omitted, we derive from miningPayouts as BTC total converted to backing token units.
+  amount: z.string().optional(),
   callerId: z.string().optional(),
   idempotencyKey: z.string().optional(),
   dryRun: z.boolean().optional(),
@@ -42,6 +43,24 @@ function sumBtc(payouts: MiningPayout[]) {
   return payouts
     .reduce((acc, p) => acc + Number(p.amountBtc), 0)
     .toString();
+}
+
+// Backing token decimals (WBTC mock uses 8 decimals)
+const BACKING_DECIMALS = 8;
+
+function parseAmountToUnits(amount: string, decimals: number): bigint {
+  const trimmed = amount.trim();
+  if (!trimmed) throw new Error("amount is empty");
+  const [wholeStr, fracStrRaw = ""] = trimmed.split(".");
+  if (!/^\d+$/.test(wholeStr || "0") || !/^\d*$/.test(fracStrRaw)) {
+    throw new Error("invalid amount format");
+  }
+  if (fracStrRaw.length > decimals) {
+    throw new Error(`too many decimal places (max ${decimals})`);
+  }
+  const fracStr = fracStrRaw.padEnd(decimals, "0");
+  const combined = `${wholeStr || "0"}${fracStr}`;
+  return BigInt(combined);
 }
 
 function now() {
@@ -94,7 +113,13 @@ export async function executePayment(input: ExecutePaymentInput) {
   const effectiveSlsShare = hasActiveVault ? parsed.slsShareBps : 0;
   const effectiveIncrease = hasActiveVault ? parsed.increaseSLS : false;
 
-  const amountWei = BigInt(parsed.amount);
+  const btcTotalIncome = sumBtc(parsed.miningPayouts);
+  const derivedAmountWei = parsed.amount
+    ? BigInt(parsed.amount)
+    : parseAmountToUnits(btcTotalIncome, BACKING_DECIMALS);
+  if (derivedAmountWei <= 0) throw new Error("amount must be greater than zero");
+
+  const amountWei = derivedAmountWei;
   const { slsAmount, burnAmount } = deriveAmounts(amountWei, effectiveSlsShare);
   const startedAt = now();
 
@@ -113,13 +138,13 @@ export async function executePayment(input: ExecutePaymentInput) {
     effectiveIncreaseSLS: effectiveIncrease,
     route,
     additionalEva: parsed.additionalEva,
-    amount: parsed.amount,
+    amount: amountWei.toString(),
     burnAmount: burnAmount.toString(),
     slsAmount: slsAmount.toString(),
     callerId: parsed.callerId,
     requestPayloadHash,
     btcPayouts: parsed.miningPayouts,
-    btcTotalIncome: sumBtc(parsed.miningPayouts),
+    btcTotalIncome,
   };
 
   await putPaymentRun(paymentRun);
