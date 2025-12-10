@@ -172,6 +172,7 @@ export async function executePayment(input: ExecutePaymentInput) {
       receipt,
     };
   } catch (err: any) {
+    console.error("executePayment failed", err?.message, err);
     const completedAt = now();
     await updatePaymentRun(runId, {
       status: "failed",

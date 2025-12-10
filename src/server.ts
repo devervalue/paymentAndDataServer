@@ -9,6 +9,7 @@ app.post("/api/payments/execute", async (req, res) => {
     const result = await executePayment(req.body);
     res.json(result);
   } catch (err: any) {
+    console.error("POST /api/payments/execute error", err?.message, err);
     res.status(400).json({ error: err?.message || "execution failed" });
   }
 });
