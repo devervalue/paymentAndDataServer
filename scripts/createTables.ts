@@ -35,7 +35,10 @@ async function createIncomeDistributions() {
     new CreateTableCommand({
       TableName: "income-distributions",
       BillingMode: "PAY_PER_REQUEST",
-      AttributeDefinitions: [{ AttributeName: "date", AttributeType: "S" }],
+      AttributeDefinitions: [
+        { AttributeName: "date", AttributeType: "S" },
+        { AttributeName: "yearMonth", AttributeType: "S" } // add this
+      ],
       KeySchema: [{ AttributeName: "date", KeyType: "HASH" }],
       GlobalSecondaryIndexes: [
         {
