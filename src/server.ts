@@ -40,6 +40,29 @@ app.get("/api/income/distribution/:date", async (req, res) => {
   }
 });
 
+app.get("/api/price/current", (_req, res) => {
+  // Static mock response; replace with real pricing feeds when available.
+  const payload = {
+    timestamp: new Date().toISOString(),
+    bvBoostBurnPrice: {
+      usd: "17.50",
+      sats: "500000",
+    },
+    marketPrice: {
+      usd: "22.75",
+      sats: "650000",
+    },
+    btcPrice: {
+      usd: "95000.00",
+    },
+    premium: {
+      percentage: "30.00",
+      usd: "5.25",
+    },
+  };
+  res.json(payload);
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`API listening on :${port}`);
